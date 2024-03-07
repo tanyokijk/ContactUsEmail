@@ -1,0 +1,89 @@
+﻿@page "/ContactUs"
+@model ContactUs.Pages.ContactUsModel
+
+<div class="feedback-card">
+    <h1 class="feedback-header">Надіслати електронний лист</h1>
+    <form method="get" class="feedback-body">
+        <input type="text" name="subject" placeholder="Тема" />
+        <textarea name="body" placeholder="Повідомлення" class="feedback-body__message"></textarea>
+        <button type="submit">Надіслати</button>
+</form>
+@if (!string.IsNullOrEmpty(TempData["Message"]?.ToString()))
+{
+    <p>@TempData["Message"]</p>
+}
+</div>
+<style>
+
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #a2a2a2;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    input, button, textarea {
+        border: 2px solid rgba(0, 0, 0, 0.6);
+        background-image: none;
+        background-color: #dadad3;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        padding: 5px;
+    }
+
+    textarea {
+        min-height: 50px;
+        resize: vertical;
+    }
+
+    button {
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .feedback-card{
+        border: 1px solid black;
+        max-width: 980px;
+        background-color: #fff;
+        margin: 0 auto;
+        box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26);
+    }
+
+    .feedback-header {
+        text-align: center;
+        padding: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        border-bottom: 1px solid black;
+    }
+
+    p {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .feedback-body{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feedback-body__message {
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+
+</style>
